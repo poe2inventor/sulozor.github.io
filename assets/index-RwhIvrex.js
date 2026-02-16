@@ -14067,7 +14067,7 @@ const x0 = {
     tier6: "Tier 6",
     tier7: "Tier 7"
 }
-  , Dt = "/atziri-temple/icons"
+  , Dt = "/icons"
   , Fe = {
     empty: {
         id: "empty",
@@ -18055,9 +18055,9 @@ const Sv = "_wrapper_1idxq_2"
     targetedProtected: Fv,
     placeableCount: Pv
 }
-  , e_ = "/atziri-temple/icons/IconAtziri.webp"
-  , t_ = "/atziri-temple/icons/MedallionLevelUpRoom.webp"
-  , n_ = "/atziri-temple/icons/MedallionPreventDeletionOfRoom.webp";
+  , e_ = "/icons/IconAtziri.webp"
+  , t_ = "/icons/MedallionLevelUpRoom.webp"
+  , n_ = "/icons/MedallionPreventDeletionOfRoom.webp";
 function a_(l) {
     const a = bt.c(100)
       , {grid: r, validPlacements: c, selectedRoom: u, selectedCell: m, onCellClick: f, onCellRightClick: y, getValidRoomsForCell: g, onRoomWarningsChange: p, onChainStatsChange: b, pendingRemoval: x, onUpgradeTier: T, onDowngradeTier: O, protectedPositions: k, targetedRoom: M, isProtectedTarget: w, destabilizableRooms: Y} = l;
@@ -18577,8 +18577,8 @@ const u_ = "_palette_1q97v_1"
     icon: y_,
     placeholder: p_
 }
-  , g_ = "/atziri-temple/icons/IconSacrificeRoom.webp"
-  , ly = "/atziri-temple/icons/MedallionLevelUpRoom.webp"
+  , g_ = "/icons/IconSacrificeRoom.webp"
+  , ly = "/icons/MedallionLevelUpRoom.webp"
   , v_ = ["reward_room", "architect", "path"];
 function __(l) {
     const a = bt.c(69)
@@ -18751,7 +18751,7 @@ function __(l) {
     a[36] = Q) : Q = a[36];
     let ae;
     a[37] === Symbol.for("react.memo_cache_sentinel") ? (ae = d.jsx("img", {
-        src: "/atziri-temple/icons/MedallionPreventDeletionOfRoom.webp",
+        src: "/icons/MedallionPreventDeletionOfRoom.webp",
         alt: "Замок",
         className: wt.icon
     }),
