@@ -54,7 +54,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 #### 2. Comprehensive Translation Coverage (418+ translations)
 
-```javascript
+```
 // 59 Temple Rooms
 'Guardhouse' → 'Караульня'
 'Altar of Sacrifice' → 'Алтарь Жертвоприношения'
@@ -105,7 +105,7 @@ ALL common attributes are translated, even in ignored elements:
   }
 });
 
-```javascript
+```
 Examples:
 title="Golem Works" → title="Мастерская Големов" (tooltips)
 placeholder="Search rooms..." → placeholder="Поиск комнат..."
@@ -339,7 +339,7 @@ v1.6: Smart element ignoring system, attribute translation always enabled
 
 #### File Structure
 
-```javascript
+```
 /atziri-temple/
 ├── index.html                          # Main page with translator integration
 ├── assets/
