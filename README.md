@@ -354,10 +354,10 @@ v1.6: Smart element ignoring system, attribute translation always enabled
 ```
 
 ### Credits
-Original Concept: lancelodliu (Chinese translation implementation)
-Russian Adaptation: PoE-Inventor
-Original Planner: Sulozor
-Based on: Path of Exile 2 Temple Planner
+   - Original Concept: lancelodliu (Chinese translation implementation)
+   - Russian Adaptation: PoE-Inventor
+   - Original Planner: Sulozor
+   - Based on: Path of Exile 2 Temple Planner
 
 ## License
 This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.
