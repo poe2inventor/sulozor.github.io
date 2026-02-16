@@ -119,11 +119,11 @@ aria-label="Close" → aria-label="Закрыть"
 ### 6. Multi-Pass Translation Strategy
 
 #### // Pass 1: DOMContentLoaded
-- document.addEventListener('DOMContentLoaded', translateDocument);
+**`document.addEventListener('DOMContentLoaded', translateDocument);`**
 #### // Pass 2: 500ms delay (catches late-rendering content)
-- setTimeout(translateDocument, 500);
+**`setTimeout(translateDocument, 500);`**
 #### // Pass 3: 1500ms delay (catches async content)
-- setTimeout(translateDocument, 1500);
+**`setTimeout(translateDocument, 1500);`**
 #### // Pass 4+: Continuous via MutationObserver (all dynamic content)
 
 ### 7. Longest Match Priority with Efficient Pattern Matching
@@ -149,8 +149,7 @@ if (translationPattern.flags.includes('i')) {
   throw new Error('Translation pattern must be case-sensitive');
 }
 ```
-
-Performance: The regex pattern is compiled once at initialization, providing O(1) lookup speed for all subsequent translations.
+   - Performance: The regex pattern is compiled once at initialization, providing O(1) lookup speed for all subsequent translations.
 
 #### 8. Service Worker Caching (Offline Support)
 
@@ -345,7 +344,7 @@ const TRANSLATION_VERSION = '1.7'; // Change from '1.6'
    - Based on: Path of Exile 2 Temple Planner
 
 ## License
-**`This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.`**
+This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.
 
    - Last Updated: February 16, 2026
    - Current Version: 1.6
