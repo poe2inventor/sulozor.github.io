@@ -49,7 +49,7 @@
   function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/atziri-temple/assets/service-worker.js')
+        navigator.serviceWorker.register('/assets/service-worker.js')
           .then((registration) => {
             console.log('PoE2 Translator: Service Worker registered successfully');
             
