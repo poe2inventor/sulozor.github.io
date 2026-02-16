@@ -127,12 +127,11 @@ aria-label="Close" → aria-label="Закрыть"
 #### // Pass 4+: Continuous via MutationObserver (all dynamic content)
 
 ### 7. Longest Match Priority with Efficient Pattern Matching
-
-Translation priority is based on the length of the English original text.
-The system ensures longer phrases always match before shorter substrings:
-"60% increased number of Magic Monsters" matches before "Magic Monsters" or "Monsters"
-"Thaumaturge's" matches before "Thaumaturge"
-Prevents incorrect partial translations
+   - Translation priority is based on the length of the English original text.
+#### The system ensures longer phrases always match before shorter substrings:
+   - "60% increased number of Magic Monsters" matches before "Magic Monsters" or "Monsters"
+   - "Thaumaturge's" matches before "Thaumaturge"
+   - Prevents incorrect partial translations
 
 ```javascript
 // Sort by length (longest first) to ensure longest match priority
