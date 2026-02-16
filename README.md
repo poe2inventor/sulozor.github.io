@@ -54,7 +54,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 #### 2. Comprehensive Translation Coverage (418+ translations)
 
-```
+```javascript
 // 59 Temple Rooms
 'Guardhouse' → 'Караульня'
 'Altar of Sacrifice' → 'Алтарь Жертвоприношения'
@@ -105,7 +105,7 @@ ALL common attributes are translated, even in ignored elements:
   }
 });
 
-```
+```javascript
 Examples:
 title="Golem Works" → title="Мастерская Големов" (tooltips)
 placeholder="Search rooms..." → placeholder="Поиск комнат..."
@@ -143,6 +143,7 @@ The system ensures longer phrases always match before shorter substrings:
 "Thaumaturge's" matches before "Thaumaturge"
 Prevents incorrect partial translations
 
+```javascript
 // Sort by length (longest first) to ensure longest match priority
 // IMPORTANT: Case-sensitive matching enforced (no 'i' flag)
 const translationPattern = new RegExp(
@@ -157,7 +158,7 @@ const translationPattern = new RegExp(
 if (translationPattern.flags.includes('i')) {
   throw new Error('Translation pattern must be case-sensitive');
 }
-
+```
 
 Performance: The regex pattern is compiled once at initialization, providing O(1) lookup speed for all subsequent translations.
 
@@ -165,6 +166,7 @@ Performance: The regex pattern is compiled once at initialization, providing O(1
 
 #### 8. Service Worker Caching (Offline Support)
 
+```javascript
 // Caches all translation files on first visit
 const TRANSLATION_FILES = [
   '/atziri-temple/assets/translations/temple-rooms.json?v=1.6',
@@ -176,7 +178,7 @@ const TRANSLATION_FILES = [
 // Cache duration: 24 hours
 // Automatic cache invalidation on version change
 // Fallback to stale cache when offline
-
+```
 
 Benefits:
 ⚡ Instant loading after first visit (~0ms vs 300-500ms)
