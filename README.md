@@ -171,15 +171,15 @@ const TRANSLATION_FILES = [
 // Fallback to stale cache when offline
 ```
 
-Benefits:
-⚡ Instant loading after first visit (~0ms vs 300-500ms)
-🌐 Full offline functionality
-💾 90% less network traffic for returning users
-🔄 Automatic updates when translation files change
+## Benefits:
+- ⚡ Instant loading after first visit (~0ms vs 300-500ms)
+- 🌐 Full offline functionality
+- 💾 90% less network traffic for returning users
+- 🔄 Automatic updates when translation files change
 
 
 #### 9. Enhanced Error Handling & Statistics
-
+```javascript
 // Custom error class for translation errors
 class TranslationError extends Error {
   constructor(message, type, details) {
@@ -210,111 +210,111 @@ setInterval(() => {
     uptime: Math.round((Date.now() - translationStats.startTime) / 1000) + 's'
   });
 }, 30000);
+```
 
-How It Works
-Translation Flow
+# How It Works
+## Translation Flow
 
-1. Page loads → Original minified JS executes
-2. Service Worker installs (if first visit) and caches translations
-3. translator.js loads (deferred)
-4. DOM ready → First translation pass
-5. 500ms → Second translation pass (catch late renders)
-6. 1500ms → Third translation pass (catch async content)
-7. Ongoing → MutationObserver catches all new content
-8. Service Worker serves translations from cache (instant)
+   - 1. Page loads → Original minified JS executes
+   - 2. Service Worker installs (if first visit) and caches translations
+   - 3. translator.js loads (deferred)
+   - 4. DOM ready → First translation pass
+   - 5. 500ms → Second translation pass (catch late renders)
+   - 6. 1500ms → Third translation pass (catch async content)
+   - 7. Ongoing → MutationObserver catches all new content
+   - 8. Service Worker serves translations from cache (instant)
+
+### What Gets Translated
+
+# Text Nodes:
+   - All visible text in the DOM
+   - Skips <script> and <style> tags
+   - Skips elements with ignored classes/attributes
+   - Attributes (ALWAYS translated):
+   - title (tooltips) - Critical for room names in tooltips
+   - placeholder (input fields)
+   - alt (images)
+   - aria-label (accessibility)
+   - Dynamic Content:
+   - Modals that appear on user action
+   - Tooltips shown on hover
+   - Content loaded via AJAX/fetch
+   - React component updates
+   - Input field placeholders
+   - Advantages
+   - Non-Invasive
+   - No modification to minified source code
+   - No rebuild required
+   - Can be easily enabled/disabled
+   - Zero impact on original application functionality
+   - Comprehensive
+   - Catches all visible text (418+ translations)
+   - Handles dynamic content seamlessly
+   - Multiple translation passes ensure coverage
+   - Attributes always translated (even in ignored elements)
+   - Maintainable
+   - Easy to add new translations (just update JSON files)
+   - Clear mapping structure
+   - Versioned files for cache management
+   - Can be updated without touching main app
+   - Safe & Robust
+   - Doesn't break existing functionality
+   - Syntax validated with error recovery
+   - No dependencies on source code structure
+   - Graceful degradation on errors
+   - High Performance
+   - Service Worker caching for instant loading
+   - Offline support
+   - 90% less network traffic
+   - Efficient regex pattern matching (O(1) lookup)
+   - Developer Friendly
+   - Detailed error logging
+   - Statistics tracking
+   - Clear console messages
+   - Version management system
 
 
-What Gets Translated
+# Testing
+## To verify the translation is working:
 
-Text Nodes:
-All visible text in the DOM
-Skips <script> and <style> tags
-Skips elements with ignored classes/attributes
-Attributes (ALWAYS translated):
-title (tooltips) - Critical for room names in tooltips
-placeholder (input fields)
-alt (images)
-aria-label (accessibility)
-Dynamic Content:
-Modals that appear on user action
-Tooltips shown on hover
-Content loaded via AJAX/fetch
-React component updates
-Input field placeholders
-Advantages
-Non-Invasive
-No modification to minified source code
-No rebuild required
-Can be easily enabled/disabled
-Zero impact on original application functionality
-Comprehensive
-Catches all visible text (418+ translations)
-Handles dynamic content seamlessly
-Multiple translation passes ensure coverage
-Attributes always translated (even in ignored elements)
-Maintainable
-Easy to add new translations (just update JSON files)
-Clear mapping structure
-Versioned files for cache management
-Can be updated without touching main app
-Safe & Robust
-Doesn't break existing functionality
-Syntax validated with error recovery
-No dependencies on source code structure
-Graceful degradation on errors
-High Performance
-Service Worker caching for instant loading
-Offline support
-90% less network traffic
-Efficient regex pattern matching (O(1) lookup)
-Developer Friendly
-Detailed error logging
-Statistics tracking
-Clear console messages
-Version management system
+### 1.Open browser console (F12)
+   - Should see: PoE2 Translator initialized - Включено
+   - Should see: PoE2 Translator: Loaded XXX translations
+   - Should see: PoE2 Translator: Service Worker registered successfully
 
-
-Testing
-To verify the translation is working:
-
-#### 1.Open browser console (F12)
-Should see: PoE2 Translator initialized - Включено
-Should see: PoE2 Translator: Loaded XXX translations
-Should see: PoE2 Translator: Service Worker registered successfully
-
-#### 2.Check translation coverage
+### 2.Check translation coverage
 // In console:
 console.log('Total translations:', Object.keys(TRANSLATIONS).length);
 // Should show: 418+ (or current count)
 
-#### 3.Verify tooltip translation
-Hover over any room in the temple planner
-Tooltip should display Russian text
-Check console for translation stats
+### 3.Verify tooltip translation
+   - Hover over any room in the temple planner
+   - Tooltip should display Russian text
+   - Check console for translation stats
 
-#### 4.Test offline mode
-Open DevTools → Application → Service Workers
-Check "Offline" checkbox
-Refresh page
-Translations should still work instantly
+### 4.Test offline mode
+   - Open DevTools → Application → Service Workers
+   - Check "Offline" checkbox
+   - Refresh page
+   - Translations should still work instantly
 
-#### 5.Check dynamic content
-Open modals/dialogs
-Add/remove rooms
-All new content should be translated immediately
-
-
-Limitations
-1.Translation Timing: Very fast dynamic content (< 50ms) might briefly show English before translation
-2.Ignored Elements: Content inside elements with class="item-name" is not translated (by design to preserve unique item names)
-3.Cache Updates: Users must wait for Service Worker update (or clear cache manually) when translations change
-4.HTTPS Required: Service Worker only works on HTTPS (or localhost for development)
+### 5.Check dynamic content
+   - Open modals/dialogs
+   - Add/remove rooms
+   - All new content should be translated immediately
 
 
-Version Management
-To update translations:
-1.Update translation JSON files in /assets/translations/
-2.Increment version number in BOTH files:
+#### Limitations
+   - 1.Translation Timing: Very fast dynamic content (< 50ms) might briefly show English before translation
+   - 2.Ignored Elements: Content inside elements with class="item-name" is not translated (by design to preserve unique item names)
+   - 3.Cache Updates: Users must wait for Service Worker update (or clear cache manually) when translations change
+   - 4.HTTPS Required: Service Worker only works on HTTPS (or localhost for development)
+
+
+# Version Management
+   - To update translations:
+   - 1.Update translation JSON files in /assets/translations/
+   - 2.Increment version number in BOTH files:
 
 // In translator.js and service-worker.js:
 const TRANSLATION_VERSION = '1.7'; // Change from '1.6'
@@ -323,11 +323,11 @@ const TRANSLATION_VERSION = '1.7'; // Change from '1.6'
 4.Users will automatically receive new translations on next visit
 
 
-Version History:
-v1.0: Initial Russian translation implementation
-v1.4: Added Service Worker caching
-v1.5: Enhanced error handling and statistics
-v1.6: Smart element ignoring system, attribute translation always enabled
+# Version History:
+   - v1.0: Initial Russian translation implementation
+   - v1.4: Added Service Worker caching
+   - v1.5: Enhanced error handling and statistics
+   - v1.6: Smart element ignoring system, attribute translation always enabled
 
 
 #### File Structure
