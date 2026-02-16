@@ -7,20 +7,20 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 ### Files Modified/Created
 
-**`/atziri-temple/assets/translator.js`** (NEW - 12.5 KB)
+**`/assets/translator.js`** (NEW - 12.5 KB)
    - Runtime translation engine with error handling
    - MutationObserver for dynamic content
    - Multi-pass translation strategy (3 passes + continuous monitoring)
    - Statistics tracking and error logging
    - Service Worker registration
 
-**`/atziri-temple/assets/service-worker.js`** (NEW - 5.2 KB)
+**`/assets/service-worker.js`** (NEW - 5.2 KB)
    - Caches all translation files for offline use
    - Cache-first strategy with 24-hour freshness validation
    - Automatic cache updates and cleanup
    - Fallback to network with stale cache recovery
 
-**`/atziri-temple/assets/translations/`** (NEW DIRECTORY)
+**`/assets/translations/`** (NEW DIRECTORY)
 
    - temple-rooms.json - 59 room translations
    - medallions.json - 9 medallion translations
@@ -28,7 +28,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
    - modifiers.json - 200+ modifier translations
    - Total: 418+ translations (as of v1.6)
 
-**`/atziri-temple/index.html`** (MODIFIED)
+**`/index.html`** (MODIFIED)
 
    - Added Service Worker registration
    - Added translator script with versioning
@@ -169,10 +169,10 @@ Performance: The regex pattern is compiled once at initialization, providing O(1
 ```javascript
 // Caches all translation files on first visit
 const TRANSLATION_FILES = [
-  '/atziri-temple/assets/translations/temple-rooms.json?v=1.6',
-  '/atziri-temple/assets/translations/medallions.json?v=1.6',
-  '/atziri-temple/assets/translations/ui-terms.json?v=1.6',
-  '/atziri-temple/assets/translations/modifiers.json?v=1.6'
+  '/assets/translations/temple-rooms.json?v=1.6',
+  '/assets/translations/medallions.json?v=1.6',
+  '/assets/translations/ui-terms.json?v=1.6',
+  '/assets/translations/modifiers.json?v=1.6'
 ];
 
 // Cache duration: 24 hours
@@ -322,7 +322,7 @@ Limitations
 
 Version Management
 To update translations:
-1.Update translation JSON files in /atziri-temple/assets/translations/
+1.Update translation JSON files in /assets/translations/
 2.Increment version number in BOTH files:
 
 // In translator.js and service-worker.js:
@@ -342,7 +342,7 @@ v1.6: Smart element ignoring system, attribute translation always enabled
 #### File Structure
 
 ```
-/atziri-temple/
+/root directory/
 ├── index.html                          # Main page with translator integration
 ├── assets/
 │   ├── translator.js                   # Main translation engine (v1.6)
