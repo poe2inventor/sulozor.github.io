@@ -78,24 +78,21 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 // ... and more
 ```
 
-3. Smart Element Ignoring System
+#### 3. Smart Element Ignoring System
 
-
+```javascript
 const IGNORE_CONFIG = {
   classes: ['no-translate', 'code-block', 'item-name'], // Skip these classes
   attributes: ['data-no-translate'], // Skip elements with this attribute
   tags: ['CODE', 'PRE', 'SCRIPT', 'STYLE'] // Skip these HTML tags
 };
+```
+- Why 'item-name' is ignored:
+- Prevents translation of unique item names (e.g., "The Godslayer's Medallion")
+- Allows room names in tooltips to be translated (handled separately via attributes)
+- Maintains game integrity while providing UI translation
 
-
-Why 'item-name' is ignored:
-Prevents translation of unique item names (e.g., "The Godslayer's Medallion")
-Allows room names in tooltips to be translated (handled separately via attributes)
-Maintains game integrity while providing UI translation
-
-
-
-4. Complete Attribute Translation
+#### 4. Complete Attribute Translation
 
 
 ALL common attributes are translated, even in ignored elements:
@@ -108,26 +105,22 @@ ALL common attributes are translated, even in ignored elements:
   }
 });
 
-
+```javascript
 Examples:
 title="Golem Works" → title="Мастерская Големов" (tooltips)
 placeholder="Search rooms..." → placeholder="Поиск комнат..."
 alt="Temple Map" → alt="Карта Храма"
 aria-label="Close" → aria-label="Закрыть"
+```
+#### 5. Dynamic Content Handling
 
+- Uses MutationObserver to monitor:
+- childList: New elements added to DOM (modals, tooltips, dynamic content)
+- attributes: Changes to title, placeholder, alt, aria-label
+- characterData: Text content changes
+- subtree: All descendant changes
 
-
-5. Dynamic Content Handling
-
-Uses MutationObserver to monitor:
-childList: New elements added to DOM (modals, tooltips, dynamic content)
-attributes: Changes to title, placeholder, alt, aria-label
-characterData: Text content changes
-subtree: All descendant changes
-
-
-
-6. Multi-Pass Translation Strategy
+#### 6. Multi-Pass Translation Strategy
 
 // Pass 1: DOMContentLoaded
 document.addEventListener('DOMContentLoaded', translateDocument);
