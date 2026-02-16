@@ -146,10 +146,10 @@
    */
   async function loadTranslations() {
     const translationFiles = [
-      `/atziri-temple/assets/translations/temple-rooms.json?v=${TRANSLATION_VERSION}`,
-      `/atziri-temple/assets/translations/medallions.json?v=${TRANSLATION_VERSION}`,
-      `/atziri-temple/assets/translations/ui-terms.json?v=${TRANSLATION_VERSION}`,
-      `/atziri-temple/assets/translations/modifiers.json?v=${TRANSLATION_VERSION}`
+      `/assets/translations/temple-rooms.json?v=${TRANSLATION_VERSION}`,
+      `/assets/translations/medallions.json?v=${TRANSLATION_VERSION}`,
+      `/assets/translations/ui-terms.json?v=${TRANSLATION_VERSION}`,
+      `/assets/translations/modifiers.json?v=${TRANSLATION_VERSION}`
     ];
 
     const translations = await Promise.all(
