@@ -65,13 +65,12 @@ Translation keys match exact case only
 Runtime validation prevents case-insensitive modifications
 Ensures accurate and predictable translations
 
+```javascript
 // Examples:
-
 'Path' → 'Путь' ✓ (exact match)
-
 'path' → 'path' ✗ (case mismatch, not translated)
-
 'PATH' → 'PATH' ✗ (case mismatch, not translated)
+```
 
 **2. Comprehensive Translation Coverage (418+ translations)**
 
