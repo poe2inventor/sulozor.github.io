@@ -10,16 +10,11 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 ### Files Modified/Created
 **`/atziri-temple/assets/translator.js`** (NEW - 12.5 KB)
 
--Runtime translation engine with error handling
-
--MutationObserver for dynamic content
-
--Multi-pass translation strategy (3 passes + continuous monitoring)
-
--Statistics tracking and error logging
-
--Service Worker registration
-
+   - Runtime translation engine with error handling
+   - MutationObserver for dynamic content
+   - Multi-pass translation strategy (3 passes + continuous monitoring)
+   - Statistics tracking and error logging
+   - Service Worker registration
 
 **`/atziri-temple/assets/service-worker.js`** (NEW - 5.2 KB)
 
