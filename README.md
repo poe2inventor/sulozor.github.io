@@ -33,9 +33,9 @@ A non-invasive JavaScript translation layer that translates English UI strings t
    - Enhanced SEO meta tags and schema.org markup
    - Preconnect optimizations for external resources
 
-### Key Features
+## Key Features
 
-#### 1. Case-Sensitive Translation Matching (STRICT)
+### 1. Case-Sensitive Translation Matching (STRICT)
 
 **All translations strictly follow case-sensitive matching rules.**
 - Translation keys match exact case only
@@ -49,7 +49,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 'path' → 'path' ✗ (case mismatch, not translated)
 'PATH' → 'PATH' ✗ (case mismatch, not translated)
 ```
-#### 2. Comprehensive Translation Coverage (418+ translations)
+### 2. Comprehensive Translation Coverage (418+ translations)
 
 ```javascript
 // 59 Temple Rooms
@@ -75,7 +75,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 // ... and more
 ```
 
-#### 3. Smart Element Ignoring System
+### 3. Smart Element Ignoring System
 
 ```javascript
 const IGNORE_CONFIG = {
@@ -89,7 +89,7 @@ const IGNORE_CONFIG = {
 - Allows room names in tooltips to be translated (handled separately via attributes)
 - Maintains game integrity while providing UI translation
 
-#### 4. Complete Attribute Translation
+### 4. Complete Attribute Translation
    - ALL common attributes are translated, even in ignored elements:
 ```javascript
 // ALWAYS translated (critical for tooltips and inputs):
@@ -109,24 +109,24 @@ placeholder="Search rooms..." → placeholder="Поиск комнат..."
 alt="Temple Map" → alt="Карта Храма"
 aria-label="Close" → aria-label="Закрыть"
 ```
-#### 5. Dynamic Content Handling
+### 5. Dynamic Content Handling
 - Uses MutationObserver to monitor:
 - childList: New elements added to DOM (modals, tooltips, dynamic content)
 - attributes: Changes to title, placeholder, alt, aria-label
 - characterData: Text content changes
 - subtree: All descendant changes
 
-#### 6. Multi-Pass Translation Strategy
+### 6. Multi-Pass Translation Strategy
 
-# // Pass 1: DOMContentLoaded
+#### // Pass 1: DOMContentLoaded
 - document.addEventListener('DOMContentLoaded', translateDocument);
-# // Pass 2: 500ms delay (catches late-rendering content)
+#### // Pass 2: 500ms delay (catches late-rendering content)
 - setTimeout(translateDocument, 500);
-# // Pass 3: 1500ms delay (catches async content)
+#### // Pass 3: 1500ms delay (catches async content)
 - setTimeout(translateDocument, 1500);
-# // Pass 4+: Continuous via MutationObserver (all dynamic content)
+#### // Pass 4+: Continuous via MutationObserver (all dynamic content)
 
-#### 7. Longest Match Priority with Efficient Pattern Matching
+### 7. Longest Match Priority with Efficient Pattern Matching
 
 Translation priority is based on the length of the English original text.
 The system ensures longer phrases always match before shorter substrings:
@@ -153,8 +153,6 @@ if (translationPattern.flags.includes('i')) {
 
 Performance: The regex pattern is compiled once at initialization, providing O(1) lookup speed for all subsequent translations.
 
-
-
 #### 8. Service Worker Caching (Offline Support)
 
 ```javascript
@@ -176,7 +174,6 @@ const TRANSLATION_FILES = [
 - 🌐 Full offline functionality
 - 💾 90% less network traffic for returning users
 - 🔄 Automatic updates when translation files change
-
 
 #### 9. Enhanced Error Handling & Statistics
 ```javascript
@@ -214,7 +211,6 @@ setInterval(() => {
 
 # How It Works
 ## Translation Flow
-
    - 1. Page loads → Original minified JS executes
    - 2. Service Worker installs (if first visit) and caches translations
    - 3. translator.js loads (deferred)
@@ -273,7 +269,6 @@ setInterval(() => {
    - Clear console messages
    - Version management system
 
-
 # Testing
 ## To verify the translation is working:
 
@@ -283,10 +278,11 @@ setInterval(() => {
    - Should see: PoE2 Translator: Service Worker registered successfully
 
 ### 2.Check translation coverage
+```javascript
 // In console:
 console.log('Total translations:', Object.keys(TRANSLATIONS).length);
 // Should show: 418+ (or current count)
-
+```
 ### 3.Verify tooltip translation
    - Hover over any room in the temple planner
    - Tooltip should display Russian text
@@ -303,25 +299,22 @@ console.log('Total translations:', Object.keys(TRANSLATIONS).length);
    - Add/remove rooms
    - All new content should be translated immediately
 
-
 #### Limitations
    - 1.Translation Timing: Very fast dynamic content (< 50ms) might briefly show English before translation
    - 2.Ignored Elements: Content inside elements with class="item-name" is not translated (by design to preserve unique item names)
    - 3.Cache Updates: Users must wait for Service Worker update (or clear cache manually) when translations change
    - 4.HTTPS Required: Service Worker only works on HTTPS (or localhost for development)
 
-
 # Version Management
    - To update translations:
    - 1.Update translation JSON files in /assets/translations/
    - 2.Increment version number in BOTH files:
-
+```javascript
 // In translator.js and service-worker.js:
 const TRANSLATION_VERSION = '1.7'; // Change from '1.6'
-
-3.Upload updated files to server
-4.Users will automatically receive new translations on next visit
-
+```
+   - 3.Upload updated files to server
+   - 4.Users will automatically receive new translations on next visit
 
 # Version History:
    - v1.0: Initial Russian translation implementation
@@ -353,8 +346,7 @@ const TRANSLATION_VERSION = '1.7'; // Change from '1.6'
    - Based on: Path of Exile 2 Temple Planner
 
 ## License
-This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.
-
+**`This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.`**
 
    - Last Updated: February 16, 2026
    - Current Version: 1.6
