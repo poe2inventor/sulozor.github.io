@@ -134,7 +134,7 @@ setTimeout(translateDocument, 1500);
 // Pass 4+: Continuous via MutationObserver (all dynamic content)
 
 
-7. Longest Match Priority with Efficient Pattern Matching
+#### 7. Longest Match Priority with Efficient Pattern Matching
 
 
 Translation priority is based on the length of the English original text.
@@ -163,7 +163,7 @@ Performance: The regex pattern is compiled once at initialization, providing O(1
 
 
 
-8. Service Worker Caching (Offline Support)
+#### 8. Service Worker Caching (Offline Support)
 
 // Caches all translation files on first visit
 const TRANSLATION_FILES = [
@@ -185,7 +185,7 @@ Benefits:
 🔄 Automatic updates when translation files change
 
 
-9. Enhanced Error Handling & Statistics
+#### 9. Enhanced Error Handling & Statistics
 
 // Custom error class for translation errors
 class TranslationError extends Error {
@@ -283,28 +283,29 @@ Version management system
 
 Testing
 To verify the translation is working:
-1.Open browser console (F12)
+
+#### 1.Open browser console (F12)
 Should see: PoE2 Translator initialized - Включено
 Should see: PoE2 Translator: Loaded XXX translations
 Should see: PoE2 Translator: Service Worker registered successfully
 
-2.Check translation coverage
+#### 2.Check translation coverage
 // In console:
 console.log('Total translations:', Object.keys(TRANSLATIONS).length);
 // Should show: 418+ (or current count)
 
-3.Verify tooltip translation
+#### 3.Verify tooltip translation
 Hover over any room in the temple planner
 Tooltip should display Russian text
 Check console for translation stats
 
-4.Test offline mode
+#### 4.Test offline mode
 Open DevTools → Application → Service Workers
 Check "Offline" checkbox
 Refresh page
 Translations should still work instantly
 
-5.Check dynamic content
+#### 5.Check dynamic content
 Open modals/dialogs
 Add/remove rooms
 All new content should be translated immediately
@@ -336,8 +337,9 @@ v1.5: Enhanced error handling and statistics
 v1.6: Smart element ignoring system, attribute translation always enabled
 
 
-File Structure
+#### File Structure
 
+```javascript
 /atziri-temple/
 ├── index.html                          # Main page with translator integration
 ├── assets/
@@ -349,15 +351,15 @@ File Structure
 │       ├── ui-terms.json               # 150+ UI interface translations
 │       └── modifiers.json              # 200+ modifier translations
 └── TRANSLATION_IMPLEMENTATION.md       # This documentation
+```
 
-
-Credits
+### Credits
 Original Concept: lancelodliu (Chinese translation implementation)
 Russian Adaptation: PoE-Inventor
 Original Planner: Sulozor
 Based on: Path of Exile 2 Temple Planner
 
-License
+## License
 This translation layer is provided as-is for the Path of Exile 2 community. The original application remains the property of its respective authors.
 
 
