@@ -12,10 +12,10 @@ const CACHE_DURATION = 86400000; // 24 hours in milliseconds
 
 // Translation files to cache
 const TRANSLATION_FILES = [
-  `/atziri-temple/assets/translations/temple-rooms.json?v=${TRANSLATION_VERSION}`,
-  `/atziri-temple/assets/translations/medallions.json?v=${TRANSLATION_VERSION}`,
-  `/atziri-temple/assets/translations/ui-terms.json?v=${TRANSLATION_VERSION}`,
-  `/atziri-temple/assets/translations/modifiers.json?v=${TRANSLATION_VERSION}`
+  `/assets/translations/temple-rooms.json?v=${TRANSLATION_VERSION}`,
+  `/assets/translations/medallions.json?v=${TRANSLATION_VERSION}`,
+  `/assets/translations/ui-terms.json?v=${TRANSLATION_VERSION}`,
+  `/assets/translations/modifiers.json?v=${TRANSLATION_VERSION}`
 ];
 
 // Error tracking for Service Worker
@@ -227,4 +227,5 @@ self.addEventListener('message', (event) => {
       }
     });
   }
+
 });
