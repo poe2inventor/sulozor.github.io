@@ -21,7 +21,6 @@ A non-invasive JavaScript translation layer that translates English UI strings t
    - Fallback to network with stale cache recovery
 
 **`/assets/translations/`** (NEW DIRECTORY)
-
    - temple-rooms.json - 59 room translations
    - medallions.json - 9 medallion translations
    - ui-terms.json - 150+ UI interface translations
@@ -29,7 +28,6 @@ A non-invasive JavaScript translation layer that translates English UI strings t
    - Total: 418+ translations (as of v1.6)
 
 **`/index.html`** (MODIFIED)
-
    - Added Service Worker registration
    - Added translator script with versioning
    - Enhanced SEO meta tags and schema.org markup
@@ -51,7 +49,6 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 'path' → 'path' ✗ (case mismatch, not translated)
 'PATH' → 'PATH' ✗ (case mismatch, not translated)
 ```
-
 #### 2. Comprehensive Translation Coverage (418+ translations)
 
 ```javascript
@@ -93,9 +90,8 @@ const IGNORE_CONFIG = {
 - Maintains game integrity while providing UI translation
 
 #### 4. Complete Attribute Translation
-
-
-ALL common attributes are translated, even in ignored elements:
+   - ALL common attributes are translated, even in ignored elements:
+```javascript
 // ALWAYS translated (critical for tooltips and inputs):
 ['title', 'placeholder', 'alt', 'aria-label'].forEach(attr => {
   if (element.hasAttribute(attr)) {
@@ -104,6 +100,7 @@ ALL common attributes are translated, even in ignored elements:
     element.setAttribute(attr, translatedValue);
   }
 });
+```
 
 ```javascript
 Examples:
@@ -113,7 +110,6 @@ alt="Temple Map" → alt="Карта Храма"
 aria-label="Close" → aria-label="Закрыть"
 ```
 #### 5. Dynamic Content Handling
-
 - Uses MutationObserver to monitor:
 - childList: New elements added to DOM (modals, tooltips, dynamic content)
 - attributes: Changes to title, placeholder, alt, aria-label
@@ -122,20 +118,15 @@ aria-label="Close" → aria-label="Закрыть"
 
 #### 6. Multi-Pass Translation Strategy
 
-// Pass 1: DOMContentLoaded
-document.addEventListener('DOMContentLoaded', translateDocument);
-
-// Pass 2: 500ms delay (catches late-rendering content)
-setTimeout(translateDocument, 500);
-
-// Pass 3: 1500ms delay (catches async content)
-setTimeout(translateDocument, 1500);
-
-// Pass 4+: Continuous via MutationObserver (all dynamic content)
-
+# // Pass 1: DOMContentLoaded
+- document.addEventListener('DOMContentLoaded', translateDocument);
+# // Pass 2: 500ms delay (catches late-rendering content)
+- setTimeout(translateDocument, 500);
+# // Pass 3: 1500ms delay (catches async content)
+- setTimeout(translateDocument, 1500);
+# // Pass 4+: Continuous via MutationObserver (all dynamic content)
 
 #### 7. Longest Match Priority with Efficient Pattern Matching
-
 
 Translation priority is based on the length of the English original text.
 The system ensures longer phrases always match before shorter substrings:
