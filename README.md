@@ -8,7 +8,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 
 ## Files Modified/Created
-**/atziri-temple/assets/translator.js (NEW - 12.5 KB)**
+**`/atziri-temple/assets/translator.js`** (NEW - 12.5 KB)
 
 -Runtime translation engine with error handling
 
@@ -21,7 +21,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 -Service Worker registration
 
 
-**/atziri-temple/assets/service-worker.js (NEW - 5.2 KB)**
+**`/atziri-temple/assets/service-worker.js`** (NEW - 5.2 KB)
 
 -Caches all translation files for offline use
 
@@ -32,7 +32,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 -Fallback to network with stale cache recovery
 
 
-**/atziri-temple/assets/translations/ (NEW DIRECTORY)**
+**`/atziri-temple/assets/translations/`** (NEW DIRECTORY)
 
 -temple-rooms.json - 59 room translations
 
@@ -45,7 +45,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 -Total: 418+ translations (as of v1.6)
 
 
-**/atziri-temple/index.html (MODIFIED)**
+**`/atziri-temple/index.html`** (MODIFIED)
 
 -Added Service Worker registration
 
@@ -57,7 +57,7 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 ## Key Features
 
-**1. Case-Sensitive Translation Matching (STRICT)**
+**1. Case-Sensitive Translation Matching** (STRICT)
 
 All translations strictly follow case-sensitive matching rules.
 Translation keys match exact case only
