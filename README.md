@@ -35,15 +35,15 @@ A non-invasive JavaScript translation layer that translates English UI strings t
    - Enhanced SEO meta tags and schema.org markup
    - Preconnect optimizations for external resources
 
-## Key Features
+### Key Features
 
-**1. Case-Sensitive Translation Matching** (STRICT)
+#### 1. Case-Sensitive Translation Matching (STRICT)
 
-All translations strictly follow case-sensitive matching rules.
-Translation keys match exact case only
-"Path" and "path" are treated as different strings
-Runtime validation prevents case-insensitive modifications
-Ensures accurate and predictable translations
+**All translations strictly follow case-sensitive matching rules.**
+- Translation keys match exact case only
+- "Path" and "path" are treated as different strings
+- Runtime validation prevents case-insensitive modifications
+- Ensures accurate and predictable translations
 
 ```javascript
 // Examples:
@@ -52,8 +52,9 @@ Ensures accurate and predictable translations
 'PATH' → 'PATH' ✗ (case mismatch, not translated)
 ```
 
-**2. Comprehensive Translation Coverage (418+ translations)**
+#### 2. Comprehensive Translation Coverage (418+ translations)
 
+```javascript
 // 59 Temple Rooms
 'Guardhouse' → 'Караульня'
 'Altar of Sacrifice' → 'Алтарь Жертвоприношения'
@@ -75,7 +76,7 @@ Ensures accurate and predictable translations
 // 200+ Modifiers
 '60% increased number of Magic Monsters' → 'Количество магических монстров увеличено на 60%'
 // ... and more
-
+```
 
 3. Smart Element Ignoring System
 
