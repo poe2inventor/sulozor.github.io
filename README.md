@@ -55,12 +55,9 @@ A non-invasive JavaScript translation layer that translates English UI strings t
 
 -Preconnect optimizations for external resources
 
-
 ## Key Features
 
-
 **1. Case-Sensitive Translation Matching (STRICT)**
-
 
 All translations strictly follow case-sensitive matching rules.
 Translation keys match exact case only
@@ -69,13 +66,14 @@ Runtime validation prevents case-insensitive modifications
 Ensures accurate and predictable translations
 
 // Examples:
+
 'Path' → 'Путь' ✓ (exact match)
+
 'path' → 'path' ✗ (case mismatch, not translated)
+
 'PATH' → 'PATH' ✗ (case mismatch, not translated)
 
-
-2. Comprehensive Translation Coverage (418+ translations)
-
+**2. Comprehensive Translation Coverage (418+ translations)**
 
 // 59 Temple Rooms
 'Guardhouse' → 'Караульня'
